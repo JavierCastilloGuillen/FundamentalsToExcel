@@ -13,10 +13,9 @@ sf.set_data_dir('simfin_data/')
 
 file = 'DCF.xlsx'  
 
-
-stock = pd.read_excel(file, sheet_name='Price')
+stock = pd.read_excel(file, sheet_name='Data')
 print(stock)
-symbol= stock['Symbol'][0]
+symbol= str(stock['Symbol'][0]).upper()
 price = pdr.get_data_yahoo(symbol)['Adj Close'][-1]
 data = {'Symbol': symbol,'Price':[price]}
 priceData = pd.DataFrame(data=data)
